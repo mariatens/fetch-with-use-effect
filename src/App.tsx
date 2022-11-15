@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 
 interface Joke {
-  id: number;
-  type: string;
-  setup: string;
-  punchline: string;
+  quote: string;
 }
 
 function App() {
@@ -13,10 +10,10 @@ function App() {
   useEffect(() => {
     const fetchJoke = async () => {
       const response = await fetch(
-        "https://jokestemp.neillbogie.repl.co/jokes/general/random"
+        "https://api.kanye.rest"
       );
-      const jsonBody: Joke[] = await response.json();
-      setJoke(jsonBody[0]);
+      const jsonBody: Joke = await response.json();
+      setJoke(jsonBody);
     };
 
     fetchJoke();
@@ -30,7 +27,7 @@ function App() {
 
   return (
     <>
-      <h1>Joke app</h1>
+      <h1>Kanye West app</h1>
       {joke && (
         // This is a conditional rendering strategy
         //  using 'short-circuiting': if the left-hand
@@ -42,10 +39,7 @@ function App() {
         // Exploiting that feature to conditional render JSX!
         <>
           <p>
-            <b>{joke.setup}</b>
-          </p>
-          <p>
-            <i>{joke.punchline}</i>
+            <b>{joke.quote}</b>
           </p>
         </>
       )}
