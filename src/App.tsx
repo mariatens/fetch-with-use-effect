@@ -1,48 +1,33 @@
 import { useEffect, useState } from "react";
 
-interface Joke {
-  quote: string;
+// this interface is inside results. I need to get into results first
+interface Pokemon {
+  name:string;
+  url:string;
 }
 
 function App() {
-  const [joke, setJoke] = useState<Joke>();
+
+  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
 
   useEffect(() => {
-    const fetchJoke = async () => {
+    const fetchPokemon = async () => {
       const response = await fetch(
-        "https://api.kanye.rest"
+        "https://pokeapi.co/api/v2/pokemon?limit=151'"
       );
-      const jsonBody: Joke = await response.json();
-      setJoke(jsonBody);
+      const jsonBody= await response.json();
+      setPokemons(jsonBody.results);
+      console.log(jsonBody.results)
     };
 
-    fetchJoke();
+    fetchPokemon();
   }, []);
-
-  // useEffect(() => {
-  //   fetch("https://jokestemp.neillbogie.repl.co/jokes/general/random")
-  //     .then(response => response.json())
-  //     .then((jsonBody: Joke[]) => setJoke(jsonBody[0]));
-  // }, [])
 
   return (
     <>
-      <h1>Kanye West app</h1>
-      {joke && (
-        // This is a conditional rendering strategy
-        //  using 'short-circuiting': if the left-hand
-        //  side of an && is false, then JavaScript
-        //  doesn't bother to evaluate the right-hand
-        //  side (since the overall expression is false
-        //  regardless)
-        //
-        // Exploiting that feature to conditional render JSX!
-        <>
-          <p>
-            <b>{joke.quote}</b>
-          </p>
-        </>
-      )}
+      <h1>Pokemon App</h1>
+      <p>{pokemons.map((eachPokemon)=> <li key = {eachPokemon.url}>{eachPokemon.name}</li>
+      )}</p>
     </>
   );
 }
