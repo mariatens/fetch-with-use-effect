@@ -39,7 +39,13 @@ function App() {
   return (
     <>
       <h1>Film App</h1>
-      <p>{films.map((eachFilm: any)=> <li key = {eachFilm.title}>{eachFilm.title}</li>
+      <p>{films.map((eachFilm: any)=> 
+      (
+      <>
+      <p key = {eachFilm.title}>{eachFilm.title}</p>
+      <img src = {eachFilm.image}/>
+      </>
+      )
       )}</p>
     </>
   );
