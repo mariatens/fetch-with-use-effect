@@ -26,6 +26,7 @@ function App() {
 
   const [films, setFilms] = useState<Film[]>([]);
   const [inputText, setInputText] = useState("");
+  const [watchedFilms, setWatchedFilms] = useState<Film[]>([]);
   const filteredFilms = filterFilms(inputText, films)
 
   useEffect(() => {
@@ -54,7 +55,10 @@ function App() {
       <div className = "image-position">
       <details>
       <summary key = {eachFilm.original_title}>{eachFilm.original_title}</summary>
-      <p key = {eachFilm.original_title}>{eachFilm.title}</p>
+      <h2 className = "films" key = {eachFilm.original_title}>{eachFilm.title}</h2>
+       <ul className = "films"> Director: {eachFilm.director}</ul>
+       <ul className = "films"> Release year: {eachFilm.release_date}</ul>
+       <ul className = "films"> Rotten tomatos score: {eachFilm.rt_score}</ul>
       </details>
       <img className = "image" key = {eachFilm.original_title} src = {eachFilm.movie_banner}/>
       </div>
