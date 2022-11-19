@@ -46,13 +46,18 @@ function App() {
   
   return (
     <>
-      <h1>Film App</h1>
+      <h1 className = "title">Studio Ghibli Films App</h1>
       <SearchBar value={inputText} onChange={saveTypedName} />
-      <p>{filteredFilms.map((eachFilm: any)=> 
+      <p className = "films">{filteredFilms.map((eachFilm: any)=> 
       (
       <>
-      <p key = {eachFilm.title}>{eachFilm.title}</p>
-      <img src = {eachFilm.image}/>
+      <div className = "image-position">
+      <details>
+      <summary key = {eachFilm.original_title}>{eachFilm.original_title}</summary>
+      <p key = {eachFilm.original_title}>{eachFilm.title}</p>
+      </details>
+      <img className = "image" key = {eachFilm.original_title} src = {eachFilm.movie_banner}/>
+      </div>
       </>
       )
       )}</p>

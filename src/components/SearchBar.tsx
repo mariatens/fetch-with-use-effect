@@ -7,7 +7,7 @@ interface InputTextProps {
     return (
       <div className="margin-top">
         <input
-          className="searchbar"
+          className="searchBar"
           placeholder="Search a film"
           value={props.value}
           onChange={(event) => props.onChange(event.target.value)}
