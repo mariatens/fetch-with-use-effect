@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FilmView } from "./components/FilmView";
 import { SearchBar } from "./components/SearchBar";
 import { filterFilms } from "./utils/filter";
 
@@ -49,25 +50,11 @@ function App() {
     <>
       <h1 className = "title">Studio Ghibli Films App</h1>
       <SearchBar value={inputText} onChange={saveTypedName} />
-      <p className = "films">{filteredFilms.map((eachFilm: any)=> 
-      (
-      <>
-      <div className = "image-position">
-      <details>
-      <summary key = {eachFilm.original_title}>{eachFilm.original_title}</summary>
-      <h2 className = "films" key = {eachFilm.original_title}>{eachFilm.title}</h2>
-       <ul className = "films"> Director: {eachFilm.director}</ul>
-       <ul className = "films"> Release year: {eachFilm.release_date}</ul>
-       <ul className = "films"> Rotten tomatos score: {eachFilm.rt_score}</ul>
-      </details>
-      <img className = "image" key = {eachFilm.original_title} src = {eachFilm.movie_banner}/>
-      </div>
+      <p className = "films">{filteredFilms.map((film)=>
+      <FilmView film = {film}/>)}</p>
       </>
-      )
-      )}</p>
-    </>
-  );
-}
+  )
+      }
 
 export default App;
 
