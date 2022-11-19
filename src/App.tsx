@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { SearchBar } from "./components/SearchBar";
+import { filterFilms } from "./utils/filter";
 
-interface Film {
+export interface Film {
     id: string;
     title: string;
     original_title: string;
@@ -22,7 +24,9 @@ interface Film {
 
 function App() {
 
-  const [films, setFilms] = useState<any[]>([]);
+  const [films, setFilms] = useState<Film[]>([]);
+  const [inputText, setInputText] = useState("");
+  const filteredFilms = filterFilms(inputText, films)
 
   useEffect(() => {
     const fetchFilm = async () => {
@@ -36,10 +40,15 @@ function App() {
     fetchFilm();
   }, []);
 
+  const saveTypedName = (typedName: string) => {
+    setInputText(typedName);
+  };
+  
   return (
     <>
       <h1>Film App</h1>
-      <p>{films.map((eachFilm: any)=> 
+      <SearchBar value={inputText} onChange={saveTypedName} />
+      <p>{filteredFilms.map((eachFilm: any)=> 
       (
       <>
       <p key = {eachFilm.title}>{eachFilm.title}</p>
@@ -52,3 +61,4 @@ function App() {
 }
 
 export default App;
+
