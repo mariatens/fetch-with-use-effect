@@ -49,9 +49,8 @@ function App() {
     <>
       <h1 className = "title">Studio Ghibli Films App</h1>
       <SearchBar value={inputText} onChange={saveTypedName} />
-      <div className = "all-films">
-      <p>{filteredFilms.map((film)=>
-      <FilmView film = {film}/>)}</p>
+      <div className = "all-films">{filteredFilms.map((film)=>
+      <FilmView film = {film}/>)}
       </div>
       </>
   )

@@ -25,6 +25,7 @@ body {
 .film{
   width: 500px;
   font-family: 'Ghibli', sans-serif;
+  margin-right: 200px;
 }
 
 .searchBar{
