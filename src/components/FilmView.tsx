@@ -10,12 +10,14 @@ export interface FilmViewProps{
             <div className = "film">
             <details>
             <summary key = {props.film.id}>{props.film.original_title}</summary>
-            <h2 key = {props.film.id}>{props.film.title}</h2>
+            <h2 className = "film-title" key = {props.film.id}>{props.film.title}</h2>
+            <li className = "film-summary">
              <ul><b> Director:</b> {props.film.director}</ul>
              <ul> <b>Release year: </b>{props.film.release_date}</ul>
              <ul><b> Rotten tomatos score: </b>{props.film.rt_score}</ul>
+             </li>
             </details>
-            <img className = "image" key = {props.film.id} src = {props.film.movie_banner}/>
+            <img className = "film-img" key = {props.film.id} src = {props.film.movie_banner}/>
             </div>
             )
     }
