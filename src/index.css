@@ -1,32 +1,32 @@
 body {
   margin: 5px;
-  font-family: 'Ghibli', sans-serif;
+  font-family: "Ghibli", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #ca9dc9;
 }
 
-.title{
+.title {
   text-align: center;
-  font-family: 'Ghibli', sans-serif;
+  font-family: "Ghibli", sans-serif;
 }
 
-.all-films{
+.all-films {
   display: flex;
   flex-wrap: wrap;
   flex-flow: row wrap;
   margin-left: 200px;
 }
 
-.film{
+.film {
   width: 300px;
-  font-family: 'Ghibli', sans-serif;
+  font-family: "Ghibli", sans-serif;
   border: 2px solid black;
   border-radius: 5%;
   margin: 5px;
 }
-.film-img{
-	width: 200px;
+.film-img {
+  width: 200px;
   /* to centre img in div */
   display: block;
   margin-left: auto;
@@ -45,10 +45,8 @@ body {
   margin-right: auto;
 }
 
-
-.searchBar{
+.searchBar {
   margin: auto;
   display: block;
-  font-family: 'Ghibli', sans-serif;
+  font-family: "Ghibli", sans-serif;
 }
-
