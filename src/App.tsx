@@ -27,6 +27,9 @@ function App() {
   const [films, setFilms] = useState<Film[]>([]);
   const [inputText, setInputText] = useState("");
   const filteredFilms = filterFilms(inputText, films);
+  const orderFilmsbyRTS = () => {
+    setFilms(filteredFilms.sort((a, b) => b.rt_score-a.rt_score))
+  }
 
   useEffect(() => {
     const fetchFilm = async () => {
@@ -44,8 +47,11 @@ function App() {
 
   return (
     <>
-      <h1 className="title">Studio Ghibli Films App</h1>
+      <h1 className="title">Studio Ghibli Films</h1>
+      <div className = "searchBar">
       <SearchBar value={inputText} onChange={saveTypedName} />
+      </div>
+      <button onClick = {()=>orderFilmsbyRTS()}>Sort by Rotten Tomato score</button>
       <div className="all-films">
         {filteredFilms.map((film) => (
           <FilmView film={film} />
