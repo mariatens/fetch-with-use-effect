@@ -51,7 +51,7 @@ function App() {
       <div className = "searchBar">
       <SearchBar value={inputText} onChange={saveTypedName} />
       </div>
-      <button onClick = {()=>orderFilmsbyRTS()}>Sort by Rotten Tomato score</button>
+      {/* <button onClick = {()=>orderFilmsbyRTS()}>Sort by Rotten Tomato score</button> */}
       <div className="all-films">
         {filteredFilms.map((film) => (
           <FilmView film={film} />
