@@ -30,7 +30,7 @@ function App() {
 
   useEffect(() => {
     const fetchFilm = async () => {
-      const response = await fetch("https://ghibliapi.herokuapp.com/films/");
+      const response = await fetch("https://studio-ghibli-api-films.onrender.com/films");
       const jsonBody = await response.json();
       setFilms(jsonBody);
     };
